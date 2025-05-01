@@ -100,20 +100,21 @@
        />
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-5">
          {blogList && blogList.length > 0 ? (
-           blogList.map((blogItem) => (
-             <Card className="p-5">
-               <CardContent>
-                 <CardTitle className="mb-5">{blogItem?.title}</CardTitle>
-                 <CardDescription>{blogItem?.description}</CardDescription>
-                 <div className="mt-5 flex gap-5  items-center">
-                   <Button onClick={() => handleEdit(blogItem)}>Edit</Button>
-                   <Button onClick={() => handleDeleteBlogByID(blogItem._id)}>
-                     Delete
-                   </Button>
-                 </div>
-               </CardContent>
-             </Card>
-           ))
+          blogList.map((blogItem) => (
+  <Card key={blogItem._id} className="p-5">
+    <CardContent>
+      <CardTitle className="mb-5">{blogItem?.title}</CardTitle>
+      <CardDescription>{blogItem?.description}</CardDescription>
+      <div className="mt-5 flex gap-5  items-center">
+        <Button onClick={() => handleEdit(blogItem)}>Edit</Button>
+        <Button onClick={() => handleDeleteBlogByID(blogItem._id)}>
+          Delete
+        </Button>
+      </div>
+    </CardContent>
+  </Card>
+))
+
          ) : (
            <Label className="text-3xl font-extrabold">
              No Blog found! Please add one
